@@ -2,7 +2,14 @@
   <div class="row">
     <div class="col-xs-6 col-xs-offset-3 text-center">
         <h1><%= @cocktail.name %></h1>
+         <ul class="list-unstyled">
+        <% @doses.each do |dose| %>
+        <li><%= dose.description %> <%= dose.ingredient.name %> <%= link_to "delete", dose_path, method: :delete %></li>
+        <% end %>
+      </ul>
+      <h1><%= link_to "add a dose", new_cocktail_dose_path(@cocktail) %></h1>
+    </div>
     </div>
   </div>
-</div>
+
 
