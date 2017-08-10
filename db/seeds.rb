@@ -14,7 +14,7 @@ parsed_json = JSON.parse(json)
 parsed_json.each do |key, value|
   value.each do |e|
     e.each do |key, value|
-      ingredient = Ingredient.new(name: value)
+      ingredient = Ingredient.new(name: "#{value}")
       ingredient.save
     end
   end

@@ -1,1 +1,13 @@
-<h1>Hello world</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3 text-center">
+        <h1>Here is your cocktail list</h1>
+        <ul class="list-unstyled">
+          <% @cocktails.each do |cocktail| %>
+            <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
+          <% end %>
+        </ul>
+    </div>
+  </div>
+</div>
+
