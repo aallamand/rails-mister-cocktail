@@ -1,15 +1,19 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-6 col-xs-offset-3 text-center">
-        <h1><%= @cocktail.name %></h1>
-         <ul class="list-unstyled">
-        <% @doses.each do |dose| %>
-        <li><%= dose.description %> <%= dose.ingredient.name %> <%= link_to "delete", dose_path, method: :delete %></li>
+      <h1><%= @cocktail.name %></h1>
+      <ul class="list-unstyled">
+        <% @cocktail.doses.each do |dose| %>
+        <li><%= dose.description %> <%= dose.ingredient.name %> <%= link_to "delete", dose_path(dose), method: :delete %></li>
         <% end %>
       </ul>
-      <h1><%= link_to "add a dose", new_cocktail_dose_path(@cocktail) %></h1>
-    </div>
+      <h1>Create a dose for <%= @cocktail.name %></h1>
+      <%= simple_form_for [@cocktail, @dose ] do |f| %>
+        <%= f.input :description %>
+        <%= f.association :ingredient %>
+        <%= f.button :submit %>
+      <% end %>
     </div>
   </div>
-
+</div>
 <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
