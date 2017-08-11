@@ -1,19 +1,30 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-6 col-xs-offset-3 text-center">
-      <h1><%= @cocktail.name %></h1>
-      <ul class="list-unstyled">
-        <% @cocktail.doses.each do |dose| %>
-        <li><%= dose.description %> <%= dose.ingredient.name %> <%= link_to "delete", dose_path(dose), method: :delete %></li>
-        <% end %>
-      </ul>
-      <h1>Create a dose for <%= @cocktail.name %></h1>
-      <%= simple_form_for [@cocktail, @dose ] do |f| %>
-        <%= f.input :description %>
-        <%= f.association :ingredient %>
+    <div class="col-xs-6 text-center">
+      <div class="cocktail-info">
+        <h2><%= @cocktail.name %></h2>
+        <ul class="list-unstyled">
+          <% @cocktail.doses.each do |dose| %>
+          <li><%= dose.description %> <%= dose.ingredient.name %> <%= link_to "delete", dose_path(dose), method: :delete %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="cocktail-action">
+        <h2>Create a dose for <%= @cocktail.name %></h2>
+        <div class="row input-selection">
+        <%= simple_form_for [@cocktail, @dose ] do |f| %>
+          <div class="col-xs-6">
+            <%= f.input :description %>
+          </div>
+          <div class="col-xs-6">
+            <%= f.association :ingredient %>
+          </div>
+        </div>
         <%= f.button :submit %>
-      <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-xs-6 div-background-image" style= "background-image: url('<%= cl_image_path @cocktail.photo, height: 300, width: 400, crop: :fill %>')">
     </div>
   </div>
 </div>
-<%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>

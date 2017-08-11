@@ -8,7 +8,7 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Links -->
-    <%= link_to "New Cocktail", new_cocktail_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Add a Cocktail", new_cocktail_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <!-- Avatar with dropdown menu -->
   </div>
 
@@ -17,9 +17,7 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+        <li><%= link_to "Add a Cocktail", new_cocktail_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
       </ul>
     </div>
   </div>
