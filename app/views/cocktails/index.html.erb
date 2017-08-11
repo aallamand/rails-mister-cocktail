@@ -3,13 +3,20 @@
     <div class="col-xs-6 col-xs-offset-3 text-center">
       <div class="list-cocktail">
         <h2>Your cocktail list</h2>
-        <ul class="list-unstyled">
-          <% @cocktails.each do |cocktail| %>
-            <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
-          <% end %>
-        </ul>
+        <table>
+          <tbody class="sortable">  <!-- sortable target -->
+            <% sortable_fetch(@cocktails) do |cocktail, id_tag| %>  <!-- RailsSortable helper -->
+              <tr id="<%= id_tag %>">  <!-- you must write it -->
+                <td><%= link_to cocktail.name, cocktail_path(cocktail) %></td>
+                <td><%= cocktail.sort %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
 </div>
+
+
 
