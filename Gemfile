@@ -40,6 +40,8 @@ gem 'carrierwave', '~> 0.11.2'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+
+#this gem make the list sortable
 gem 'rails_sortable'
 
 
