@@ -1,23 +1,14 @@
-.flex-div {
+.new-cocktail {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: Calc(100vh - 70px);
-}
-
-.cocktail-info {
-  padding-bottom: 20px;
-  margin-top: -20px;
-}
-.cocktail-action {
-
   h2 {
     padding-bottom: 20px;
     margin-bottom: 15px
   }
 }
 
-.input-selection {
-  padding-bottom: 20px;
+.form-input {
+  margin-bottom: 25px;
 }
-

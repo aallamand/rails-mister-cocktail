@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-6 text-center">
+    <div class="col-xs-6 text-center flex-div">
       <div class="cocktail-info">
         <h2><%= @cocktail.name %></h2>
         <ul class="list-unstyled">
@@ -24,7 +24,12 @@
         <% end %>
       </div>
     </div>
-    <div class="col-xs-6 div-background-image" style= "background-image: url('<%= cl_image_path @cocktail.photo, height: 300, width: 400, crop: :fill %>')">
+    <% if @cocktail.photo.url.nil? %>
+      <% @image_path = 'http://res.cloudinary.com/dzsta56e1/image/upload/c_fill,h_800,w_600/v1502459275/54b0323f69b3e10e16954b3ac28e0312_jrkljg.jpg' %>
+    <% else %>
+      <% @image_path = cl_image_path @cocktail.photo, height: 800, width: 600, crop: :fill %>
+    <% end %>
+    <div class="col-xs-6 div-background-image" style= "background-image: url('<%= @image_path %>')">
     </div>
   </div>
 </div>

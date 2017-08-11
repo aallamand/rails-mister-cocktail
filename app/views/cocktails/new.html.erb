@@ -1,8 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-4 col-xs-offset-4 text-center">
-      <h1>Create a new cocktail</h1>
-      <%= simple_form_for @cocktail do |f| %>
+    <div class="col-xs-4 col-xs-offset-4 text-center new-cocktail">
+
+      <h2>Add a new cocktail</h2>
+      <%= simple_form_for @cocktail, defaults: {input_html: {class: "form-input"}} do |f| %>
         <%= f.input :name %>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>
