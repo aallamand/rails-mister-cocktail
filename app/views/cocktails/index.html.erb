@@ -8,7 +8,7 @@
             <% sortable_fetch(@cocktails) do |cocktail, id_tag| %>  <!-- RailsSortable helper -->
               <tr id="<%= id_tag %>">  <!-- you must write it -->
                 <td><%= link_to cocktail.name, cocktail_path(cocktail) %></td>
-                <td><%= cocktail.sort %></td>
+                <td><% cocktail.sort %></td>
               </tr>
             <% end %>
           </tbody>
